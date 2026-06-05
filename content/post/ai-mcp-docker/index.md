@@ -20,8 +20,6 @@ categories:
 
 ---
 
----
-
 ## Introducing Today's Project!
 
 In this project, I am going to use natural language in the Cursor AI-powered code editor to create and manage a PostgreSQL database container via the Model Context Protocol (MCP).
