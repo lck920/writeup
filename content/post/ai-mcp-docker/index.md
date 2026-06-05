@@ -18,9 +18,6 @@ categories:
 
 **Project Link:** [View Project](http://learn.nextwork.org/projects/ai-mcp-docker)
 
-**Author:** Chun Kit  
-**Email:** chunkit042@gmail.com
-
 ---
 
 ---
