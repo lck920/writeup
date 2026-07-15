@@ -21,7 +21,7 @@ categories:
 
 ---
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_9i0j1k2l)
+![Image](img1.png)
 
 ---
 
@@ -49,7 +49,7 @@ Terraform is one of the most popular tools used for infrastructure as code (IaC)
 
 Terraform uses configuration files to define and manage the desired state of your cloud infrastructure. main.tf is the central blueprint file in a Terraform project where you write the actual code to declare your resources—such as your AWS provider settings, S3 buckets, and access controls—telling Terraform exactly what you want it to build.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_9i0j1k2l)
+![Image](img1.png)
 
 ---
 
@@ -61,7 +61,7 @@ The configuration is structured in an easy-to-read, human-digestible layout wher
 
 The first block indicates the cloud provider that Terraform needs to target, which is AWS, along with the specific geographic region (region = "your-region-code") where the infrastructure should be deployed. This block tells Terraform which plugin to download so it can translate your code into the correct AWS API calls. The second block provisions the actual Amazon S3 bucket resource (aws_s3_bucket), giving it an internal reference name (my_bucket) for Terraform to use, and a globally unique name for the bucket itself so it can be successfully created in your AWS account. The third block manages the security perimeter of that specific S3 bucket by implementing an aws_s3_bucket_public_access_block. It explicitly references the bucket created in the previous block and sets all public access flags (block_public_acls, ignore_public_acls, block_public_policy, and restrict_public_buckets) to true to prevent accidental public data exposure.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_ljvh9876)
+![Image](img2.png)
 
 ---
 
@@ -71,7 +71,7 @@ For my project extension, I visited the official Terraform documentation to lear
 
 I chose to customise my bucket by adding a tags configuration block containing custom metadata (Name = "My bucket" and Environment = "Dev") directly inside my aws_s3_bucket resource. Because resource tagging is a critical DevOps best practice in production environments. It allows teams to clearly categorize cloud resources, trace project ownership, and organize billing costs within a busy AWS account without altering the resource infrastructure itself. When I launch my bucket, I can verify my customization by logging into the AWS Management Console, opening the Amazon S3 service dashboard, clicking into my specific bucket (nextwork-unique-bucket-dllm-302432775662), navigating to the Properties tab, and scrolling down to the Tags section to confirm that both custom keys and values have been applied successfully.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_ffe757cd3)
+![Image](img3.png)
 
 ---
 
@@ -81,7 +81,7 @@ I ran 'terraform init' to prepare and initialize my working directory for the pr
 
 Next, I ran 'terraform plan' to generate a safe preview of the actions Terraform will take to build my infrastructure. It reads my configuration file and displays a dry-run layout in the terminal, showing that it intends to add two new resources (the S3 bucket and its public access block) without altering or deleting anything else.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_3g4h5i6j)
+![Image](img4.png)
 
 ---
 
@@ -93,7 +93,7 @@ To resolve my error, first I installed AWS CLI, which is a command-line tool tha
 
 I set up AWS access keys to grant the AWS CLI and Terraform programmatic access to my AWS account. Because the terminal does not share my web browser's login session, these keys act as a secure username and password that allow my local machine to authenticate with AWS and build resources directly from my code.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_7j8k9l0m)
+![Image](img5.png)
 
 ---
 
@@ -103,7 +103,7 @@ I ran 'terraform apply' to finalize the deployment of my infrastructure code. Ru
 
 The sequence of running terraform init, plan, and apply is crucial because each command builds directly on the previous one to create a safe, predictable deployment pipeline. init prepares your workspace by downloading the necessary cloud provider plugins; plan creates a risk-free blueprint simulation so you can preview exactly what will change; and apply finalizes the process by executing those approved changes on your live cloud account. Skipping this order increases the risk of deploying blind syntax errors or making accidental modifications to your active infrastructure.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_1q2w3e4r)
+![Image](img6.png)
 
 ---
 
@@ -115,7 +115,7 @@ We need to run terraform apply again because any changes made to your main.tf fi
 
 To validate that I've updated my configuration successfully, I navigated to the Amazon S3 console, opened my newly created bucket, and verified that the image.png file was listed inside the objects tab. I then selected the file, downloaded it back to my local machine, and opened it to confirm it perfectly matched the original image I targeted in my code.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/aws-devops-terraform1_9o0p1a2s)
+![Image](img7.png)
 
 ---
 

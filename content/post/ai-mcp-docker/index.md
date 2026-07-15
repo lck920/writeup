@@ -42,7 +42,7 @@ I did this project today to learn how to bridge the gap between AI chat models a
 
 In this step, I'm installing Cursor and Docker Desktop. I need Cursor because it is an AI-powered code editor that allows me to use natural language prompts to control Docker through the Model Context Protocol (MCP). Docker Desktop will help me run, manage, and isolate my PostgreSQL database inside a lightweight container, keeping my local operating system clean.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/ai-mcp-docker_8h9i0j1k)
+![Image](img1.png)
 
 ### Why Docker containers?
 
@@ -54,7 +54,7 @@ Docker containers are useful because they package an application and all its dep
 
 In this step, I'm enabling the Docker MCP which lets Cursor communicate directly with Docker Desktop and manage my container infrastructure using natural language prompts. Instead of just editing text files, this integration allows Cursor's AI chat to run commands, pull images, and spin up or monitor containers like PostgreSQL natively from the editor.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/ai-mcp-docker_8g9h0i1j)
+![Image](img2.png)
 
 ### Installing Python and uv
 
@@ -70,13 +70,13 @@ The Docker MCP lets me interact with my local Docker daemon directly through Cur
 
 In this step, I'm going to use the Docker MCP to spin up a customized PostgreSQL database container with a single natural language prompt. Instead of manually looking up and typing out complex terminal commands, I will simply tell Cursor the exact database parameters I want—such as the database name, username, password, and port mapping—and let the AI orchestrate the deployment natively.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/ai-mcp-docker_7k8m9n0p)
+![Image](img3.png)
 
 ### Verifying the container
 
 I verified my container by checking Docker Desktop where I can see the my-db container listed inside the Containers tab with a bright green "Running" status icon. This indicates that the container successfully started up in the background and is actively hosting the PostgreSQL database on port 5432, completely isolated from my local machine.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/ai-mcp-docker_2q3r4s5t)
+![Image](img4.png)
 
 ---
 
@@ -88,7 +88,7 @@ In this step, I'm setting up a multi-container environment on my Desktop that li
 
 I created a docker-compose.yml file that defines the multi-container infrastructure required to run and manage my database ecosystem simultaneously. The two containers running are a PostgreSQL database container (my-db) that safely stores all my data, and an Adminer web interface container (adminer) that runs on port 8081 to let me visually interact with, browse, and manage that database right from my browser.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/ai-mcp-docker_x7z1b4c6)
+![Image](img5.png)
 
 ### Accessing the database in the browser
 
@@ -100,12 +100,10 @@ I verified my database by logging into Adminer at localhost:8081 where I can see
 
 In this project extension, I'm going to use the Docker MCP to inspect my database container's logs directly from Cursor's AI chat without opening a separate terminal window. This will help me understand how backend engineers monitor container health, track the database startup sequence, and catch potential errors or warnings to ensure my infrastructure is running smoothly.
 
-![Image](http://learn.nextwork.org/charmed_gray_loyal_turtle/uploads/ai-mcp-docker_9y0z1a2b)
+![Image](img5.png)
 
 ### What I learned from the logs
 
 I checked my container logs without opening Docker Desktop or running any complex Docker CLI commands in a traditional terminal by sending a natural language prompt directly to Cursor’s AI chat, which utilized the connected Docker MCP to instantly fetch and translate the backend log outputs for me.
-
----
 
 ---
